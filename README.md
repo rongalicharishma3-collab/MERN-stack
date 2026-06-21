@@ -1,135 +1,269 @@
-# Explore Vizag
+# Explore Vizag - MERN Tourism Management Platform
 
-Explore Vizag is a full-stack MERN tourism platform for Visakhapatnam. Guests can discover attractions and events, then generate a personalized trip plan. Registered users can review places, save favorites, and manage itineraries. Admins can manage platform content and view analytics.
+## Overview
 
-## Tech Stack
+Explore Vizag is a full-stack MERN application designed to help tourists discover, plan, and manage trips across Visakhapatnam (Vizag). The platform provides detailed information about tourist attractions, temples, beaches, museums, events, and travel itineraries while offering an admin dashboard for content management.
 
-- Frontend: React, Vite, React Router DOM, Axios, Tailwind CSS, Context API
-- Backend: Node.js, Express.js, Mongoose
-- Database: MongoDB Atlas
-- Authentication: JWT and bcrypt
-- Image Uploads: Cloudinary
+---
+
+## Features
+
+### Public Features
+
+* Browse tourist attractions
+* Search and filter attractions by category
+* View detailed attraction information
+* Explore upcoming events
+* User registration and login
+* Save favorite attractions
+* Create and manage personal itineraries
+* User profile management
+* Responsive design for desktop and mobile devices
+
+### Admin Features
+
+* Secure admin authentication
+* Admin dashboard with statistics
+* Add, edit, and delete attractions
+* Manage events
+* Manage users
+* Upload attraction images
+* Content management system
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* React.js
+* React Router DOM
+* Axios
+* Tailwind CSS
+* Vite
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* Multer
+* Cloudinary
+
+### Database
+
+* MongoDB
+
+---
 
 ## Project Structure
 
 ```text
 Explore-Vizag/
-  backend/
-    src/
-      config/
-      controllers/
-      middleware/
-      models/
-      routes/
-      seed/
-      utils/
-      app.js
-      server.js
-  frontend/
-    src/
-      components/
-      context/
-      pages/
-      services/
-      App.jsx
-      main.jsx
-      index.css
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── services/
+│   │   └── App.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── seed/
+│   │   ├── utils/
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   └── package.json
+│
+└── README.md
 ```
 
-## Local Setup
+---
 
-### 1. Backend
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/rongalicharishma3-collab/MERN-stack.git
+cd Explore-Vizag
+```
+
+---
+
+## Backend Setup
 
 ```bash
 cd backend
 npm install
-cp .env.example .env
-npm run seed
-npm run dev
 ```
 
-Backend runs on `http://localhost:5000`.
-
-### 2. Frontend
-
-```bash
-cd frontend
-npm install
-cp .env.example .env
-npm run dev
-```
-
-Frontend runs on `http://localhost:5173`.
-
-## Required Environment Variables
-
-Backend `.env`:
+Create a `.env` file:
 
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/explore-vizag
-JWT_SECRET=replace_with_a_long_random_secret
+MONGO_URI=mongodb://localhost:27017/explore-vizag-final
+JWT_SECRET=your_secret_key
 JWT_EXPIRES_IN=7d
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
 CLIENT_URL=http://localhost:5173
 ```
 
-Frontend `.env`:
+Start Backend:
+
+```bash
+npm run dev
+```
+
+---
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+```
+
+Create a `.env` file:
 
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
 
-## Demo Accounts After Seeding
-
-- Admin: `admin@explorevizag.com` / `Admin@123`
-- User: `user@explorevizag.com` / `User@123`
-
-## Trip Planner
-
-The frontend includes a form-based Trip Planner where users can enter personal details, dates, places to visit, transport mode, guide requirement, and accommodation preference. It generates a clean day-wise plan and authenticated users can save it to My Itineraries.
-
-## Deployment
-
-### Backend
-
-Deploy the `backend` folder to Render, Railway, Fly.io, or a Node-capable VPS.
-
-Set production environment variables:
-
-- `NODE_ENV=production`
-- `MONGO_URI`
-- `JWT_SECRET`
-- `CLOUDINARY_*`
-- `CLIENT_URL`
-
-Start command:
+Start Frontend:
 
 ```bash
-npm start
+npm run dev
 ```
 
-### Frontend
+---
 
-Deploy the `frontend` folder to Vercel, Netlify, or Cloudflare Pages.
+## Database Seeding
 
-Build command:
+To populate sample attractions, events, and users:
 
 ```bash
-npm run build
+npm run seed
 ```
 
-Output directory:
+Sample Credentials:
+
+### Admin
 
 ```text
-dist
+Email: admin@explorevizag.com
+Password: Admin@123
 ```
 
-Set `VITE_API_URL` to your deployed backend API URL.
+### User
 
-## API Documentation
+```text
+Email: user@explorevizag.com
+Password: User@123
+```
 
-See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md).
+---
+
+## API Modules
+
+### Authentication
+
+* Register User
+* Login User
+* JWT Authentication
+
+### Attractions
+
+* Get Attractions
+* Get Attraction Details
+* Create Attraction
+* Update Attraction
+* Delete Attraction
+* Favorite Attractions
+
+### Events
+
+* Create Events
+* View Events
+* Manage Events
+
+### Users
+
+* Profile Management
+* Favorites Management
+* Role-Based Authorization
+
+### Dashboard
+
+* Admin Statistics
+* Content Overview
+
+---
+
+## Security Features
+
+* JWT Authentication
+* Password Hashing using bcrypt
+* Role-Based Access Control
+* Protected Routes
+* Input Validation
+
+---
+
+# Project Screenshots
+
+## Home Page
+
+![Home Page](screenshots/homepage.png)
+
+## Attractions Page
+
+![Attractions](screenshots/attractions.png)
+
+## Events Page
+
+![Events](screenshots/events.png)
+
+## Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+## Attractions Database
+
+![Attractions Database](screenshots/attractions-database.png)
+
+## Database Collections
+
+![Database](screenshots/database.png)
+## Future Enhancements
+
+* Hotel Booking Integration
+* AI Travel Recommendations
+* Weather Information
+* Real-Time Notifications
+* Multi-language Support
+* Online Ticket Booking
+* Interactive Maps
+
+---
+
+## Author
+
+Team-16
+
+MERN Stack Developer Project
+
+Explore Vizag Tourism Management Platform
